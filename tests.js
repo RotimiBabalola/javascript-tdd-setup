@@ -49,7 +49,7 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       lib.sumOfPrimes(0) == "please use a number greater than zero"
     );
   });
-  it("should return negative number not allowed", function(){
+  it("should return 'negative number not allowed'", function(){
   	assert(
         lib.sumOfPrimes(-10) == "Negative inputs not allowed"
   	);
