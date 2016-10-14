@@ -3,22 +3,32 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-var NotesApplication = require('./lib/notesapplication.js');
-var Note = require('./lib/note.js');
+var lib = require('./lib/sum-of-primes.js');
 
-describe("Note creation works properly", function() {
-    it("assigns author based on the parameter supplied in the constructor", function() {
-        note = new Note("Hello world", "Chidiebere")
-        assert(note.author == "Chidiebere")
-    })
-})
-
-describe("Notes application increments number of notes as notes are added", function() {
-    it("increments the note list as notes are added", function() {
-        note = new Note("Hello world", "Chidiebere");
-        noteapp = new NotesApplication("Chidiebere");
-        assert(noteapp.notelist.length == 0)
-        noteapp.addNote(note)
-        assert(noteapp.notelist.length == 1)
-    })
-})
+describe("Test that the sum of prime gives the correct answers for each test case", function() {
+  it("should return 17", function() {
+    assert(
+      lib.sumOfPrimes(10) == 17;
+    );
+  });
+  it("should print wrong input for wrong inputs", function() {
+    assert(
+      lib.sumOfPrimes(n) == "wrong input";
+    );
+  });
+  it("should fail if input is zero", function() {
+    assert(
+      lib.sumOfPrimes(0) == "please use a number greater than zero";
+    );
+  });
+  it("should not return an integer", function(){
+  	assert(
+  		typeOf(lib.sumOfPrimes(50)) == "number";
+  	);
+  });
+  it("should return negative number not allowed", function(){
+  	assert(
+        lib.sumOfPrimes(-10) == "Negative inputs not allowed";
+  	);
+  });
+});
