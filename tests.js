@@ -9,13 +9,13 @@ describe("Test that the sum of prime gives the correct answers for each test cas
   //interger Input Type Test Case
   it("should return an integer", function(){
     assert(
-      typeOf(lib.sumOfPrimes(50)) == "number"
+      typeof lib.sumOfPrimes(50) == "number"
     );
   });
   //Float Input Type Test Case
   it("should not accept float values", function(){
     assert(
-      typeOf(lib.sumOfPrimes(50.33)) == "Please use an integer"
+      typeof lib.sumOfPrimes(50.33) == "Please use an integer"
     );
   });
   //PreEstablished Output Test Case
