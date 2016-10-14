@@ -21,27 +21,27 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       lib.sumOfPrimes(10) == 17
     );
   });
-  it("should print 'wrong input type' for wrong inputs", function() {
+  it("should print 'wrong input type - <type>' for wrong inputs", function() {
     assert(
-      lib.sumOfPrimes([]) == "wrong input type"
+      lib.sumOfPrimes([]) == "wrong input type - array"
     );
     assert(
-      lib.sumOfPrimes("") == "wrong input type"
+      lib.sumOfPrimes("") == "wrong input type - string"
     );
     assert(
-      lib.sumOfPrimes({}) == "wrong input type"
+      lib.sumOfPrimes({}) == "wrong input type - object"
     );
     assert(
-      lib.sumOfPrimes(true) == "wrong input type"
+      lib.sumOfPrimes(true) == "wrong input type - boolean"
     );
     assert(
-      lib.sumOfPrimes(false) == "wrong input type"
+      lib.sumOfPrimes(false) == "wrong input type - boolean"
     );
     assert(
-      lib.sumOfPrimes(null) == "wrong input type"
+      lib.sumOfPrimes(null) == "wrong input type - null"
     );
     assert(
-      lib.sumOfPrimes(undefined) == "wrong input type"
+      lib.sumOfPrimes(undefined) == "wrong input type - undefined"
     );
   });
   it("should fail if input is zero", function() {
