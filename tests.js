@@ -44,7 +44,7 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       lib.sumOfPrimes(undefined) == "wrong input type - undefined"
     );
   });
-  it("should fail if input is zero", function() {
+  it("should return 'please use a number greater than zero' if input is zero", function() {
     assert(
       lib.sumOfPrimes(0) == "please use a number greater than zero"
     );
