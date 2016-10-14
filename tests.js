@@ -3,22 +3,32 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-var lib = require('./lib/library.js');
+var lib = require('./lib/sum-of-primes.js');
 
-describe("Test that constants are computed properly", function() {
-  it("should give 10, 4 for constants 2, 5 as a and n respectively", function() {
+describe("Test that the sum of prime gives the correct answers for each test case", function() {
+  it("should return 17", function() {
     assert(
-      lib.compareCoefficients(lib.quadraticDerivative(2, 5), { a: 10, n: 4 })
+      lib.sumOfPrimes(10) == 17;
     );
   });
-  it("should give 2, 1 for constants 1, 2 as a and n respectively", function() {
+  it("should give undefined for wrong inputs", function() {
     assert(
-      lib.compareCoefficients(lib.quadraticDerivative(1, 2), { a: 2, n: 1 })
+      lib.sumOfPrimes(n) == "undefined";
     );
   });
-  it("should give 8, 1 for constants 4, 2 as a and n respectively", function() {
+  it("should fail if input is zero", function() {
     assert(
-      lib.compareCoefficients(lib.quadraticDerivative(4, 2), { a: 8, n: 1 })
+      lib.sumOfPrimes(0) == "please use a number greater than zero";
     );
+  });
+  it("should not return an integer", function(){
+  	assert(
+  		typeOf(lib.sumOfPrimes(50)) == "number";
+  	);
+  });
+  it("should return negative number not allowed", function(){
+  	assert(
+        lib.sumOfPrimes(-10) == "Negative inputs not allowed";
+  	);
   });
 });
