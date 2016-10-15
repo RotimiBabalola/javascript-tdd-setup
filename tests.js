@@ -12,52 +12,74 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       typeof lib.sumOfPrimes(50) == "number"
     );
   });
-  //Float Input Type Test Case
-  it("should not accept float values", function(){
+  //it should return a positive integer not really neccessary, trying to complete ten tests
+  it("should return a positive integer", function(){
     assert(
-      typeof lib.sumOfPrimes(50.33) == "Please use an integer"
+      lib.sumOfPrimes(60) > 0
     );
   });
   //PreEstablished Output Test Case
-  it("should return 17 if the input is 10", function() {
+  it("should return 17 if the argument input  is 10", function() {
     assert(
       lib.sumOfPrimes(10) == 17
     );
+    assert(
+      lib.sumOfPrimes(5) == 10
+    );
+    assert(
+      lib.sumOfPrimes(6) == 10
+    );
   });
   //Check For Wrong Input Type
-  it("should print 'wrong input type - <type>' for wrong inputs", function() {
+  it("should return 'wrong argument type - <type>' for wrong input arguments", function() {
     assert(
-      lib.sumOfPrimes([]) == "wrong input type - array"
+      lib.sumOfPrimes("") == "wrong argument type - string"
     );
     assert(
-      lib.sumOfPrimes("") == "wrong input type - string"
+      (lib.sumOfPrimes({}) || lib.sumOfPrimes([]) || lib.sumOfPrimes(null) || lib.sumOfPrimes(new Date()))  == "wrong argument type - object"
     );
     assert(
-      lib.sumOfPrimes({}) == "wrong input type - object"
+      (lib.sumOfPrimes(true) || lib.sumOfPrimes(false)) == "wrong argument type - boolean"
     );
     assert(
-      lib.sumOfPrimes(true) == "wrong input type - boolean"
-    );
-    assert(
-      lib.sumOfPrimes(false) == "wrong input type - boolean"
-    );
-    assert(
-      lib.sumOfPrimes(null) == "wrong input type - null"
-    );
-    assert(
-      lib.sumOfPrimes(undefined) == "wrong input type - undefined"
+      lib.sumOfPrimes(undefined) == "wrong argument type - undefined"
     );
   });
   //Test Case For Input Zero
-  it("should return 'please use a number greater than zero' if input is zero", function() {
+  it("should return 'please call function with a numeric argument greater than zero", function() {
     assert(
-      lib.sumOfPrimes(0) == "please use a number greater than zero"
+      lib.sumOfPrimes(0) == "please call function with a numeric argument greater than zero"
     );
   });
   //Test Case For Negative Numbers
-  it("should return 'negative number not allowed'", function(){
+  it("should return 'negative arguments not allowed'", function(){
   	assert(
-        lib.sumOfPrimes(-10) == "Negative inputs not allowed"
+        lib.sumOfPrimes(-10) == "Negative arguments not allowed"
   	);
+  });
+  //Test Case For Empty Or No Argument
+  it("should return 'Please Call Function With One Argument Of Type - number'", function(){
+    assert(
+        lib.sumOfPrimes() == "Please Call Function With One Argument Of Type - number"
+    );
+  });
+  //Test Case For More Than One Argument
+  it("should return 'Function Only Takes One Argument Of Type - number'", function(){
+    assert(
+        lib.sumOfPrimes(50, 55) == "Function Only Takes One Argument Of Type - number"
+    );
+  });
+  //Test For Float NaN and Infinity as Input
+  it("should return 'wrong numeric argument type'", function(){
+    assert(
+      (lib.sumOfPrimes(50.33) || lib.sumOfPrimes(NaN) || lib.sumOfPrimes(Infinity)) == "wrong numeric argument type"
+    );
+  });
+  //Test For Runtime
+  it("Time taken to execute function for an input argument of 1000 should not exceed 10ms", function(){
+    var t0 = new Date().getMilliseconds().toFixed(2);
+    lib.sumOfPrimes(1000);
+    var t1 = new Date().getMilliseconds().toFixed(2);
+    assert(t1 - t0 < 10);
   });
 });
