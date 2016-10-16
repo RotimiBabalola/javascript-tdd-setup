@@ -36,10 +36,10 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       lib.sumOfPrimes("") == "wrong argument type - string"
     );
     assert(
-      (lib.sumOfPrimes({}) || lib.sumOfPrimes([]) || lib.sumOfPrimes(null) || lib.sumOfPrimes(new Date()))  == "wrong argument type - object"
+      lib.sumOfPrimes({} || null || new Date() || [])  == "wrong argument type - object"
     );
     assert(
-      (lib.sumOfPrimes(true) || lib.sumOfPrimes(false)) == "wrong argument type - boolean"
+      lib.sumOfPrimes(true || false) == "wrong argument type - boolean"
     );
     assert(
       lib.sumOfPrimes(undefined) == "wrong argument type - undefined"
@@ -72,14 +72,14 @@ describe("Test that the sum of prime gives the correct answers for each test cas
   //Test For Float NaN and Infinity as Input
   it("should return 'wrong numeric argument type'", function(){
     assert(
-      (lib.sumOfPrimes(50.33) || lib.sumOfPrimes(NaN) || lib.sumOfPrimes(Infinity)) == "wrong numeric argument type"
+      lib.sumOfPrimes(50.33 || NaN || Infinity) == "wrong numeric argument type"
     );
   });
-  //Test For Runtime
+  //Test For Runtime used getMilliseconds before not sure of accuracy, change to getTime
   it("Time taken to execute function for an input argument of 1000 should not exceed 10ms", function(){
-    var t0 = new Date().getMilliseconds().toFixed(2);
+    var t0 = new Date().getTime().toFixed(2);
     lib.sumOfPrimes(1000);
-    var t1 = new Date().getMilliseconds().toFixed(2);
+    var t1 = new Date().getTime().toFixed(2);
     assert(t1 - t0 < 10);
   });
 });
