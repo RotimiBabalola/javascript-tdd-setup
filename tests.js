@@ -12,12 +12,13 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       typeof lib.sumOfPrimes(50) == "number"
     );
   });
-  //it should return a positive integer not really neccessary, trying to complete ten tests
+  /* it should return a positive integer not really neccessary, trying to complete ten tests
   it("should return a positive integer", function(){
     assert(
-      lib.sumOfPrimes(60) > 0
+      lib.sumOfPrimes(2)
     );
   });
+  */
   //PreEstablished Output Test Case
   it("should return 17 if the argument input  is 10", function() {
     assert(
@@ -45,10 +46,17 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       lib.sumOfPrimes(undefined) == "wrong argument type - undefined"
     );
   });
-  //Test Case For Input Zero
-  it("should return 'please call function with a numeric argument greater than zero", function() {
+
+  //Test Case For Input one - this  test can be combined with the one immediately below leave split for further clarity
+  it("should return 'please call function with a numeric argument greater than 1", function() {
     assert(
-      lib.sumOfPrimes(0) == "please call function with a numeric argument greater than zero"
+      lib.sumOfPrimes(1) == "please call function with a numeric argument greater than 1"
+    );
+  });
+  //Test Case For Input Zero - this  test can be combined with the one immediately above leave split for further clarity
+  it("should return 'please call function with a numeric argument greater than 0", function() {
+    assert(
+      lib.sumOfPrimes(0) == "please call function with a numeric argument greater than 0"
     );
   });
   //Test Case For Negative Numbers
