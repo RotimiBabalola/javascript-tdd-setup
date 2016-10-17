@@ -12,10 +12,25 @@ describe("Test that the sum of prime gives the correct answers for each test cas
       typeof lib.sumOfPrimes(50) == "number"
     );
   });
-  /* it should return a positive integer not really neccessary, trying to complete ten tests
-  it("should return a positive integer", function(){
+  //the is Prime function should return an true or false 
+  it("should return a boolean", function(){
     assert(
-      lib.sumOfPrimes(2)
+      lib.isPrime(20) == false
+    );
+    assert(
+      lib.isPrime(7) == true
+    );
+  });
+  //the range function should return an array
+  it("should return an array", function(){
+    assert(
+      Array.isArray(lib.range(20)) == true
+    );
+  });
+  /*the arrayReduce function should return an integer greater than or equal to 2
+  it("should return an integer greater than or equal to two", function(){
+    assert(
+      typeof lib.arrayReduce(2) == "number" && lib.arrayReduce(2) >= 2
     );
   });
   */
